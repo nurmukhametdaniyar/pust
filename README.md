@@ -35,4 +35,4 @@ Options:
 
 ## Acknowledgments
 
-Got inspired by (Jarusk's pass-rs)[https://github.com/Jarusk/pass-rs]
+Got inspired by [Jarusk's pass-rs](https://github.com/Jarusk/pass-rs)
