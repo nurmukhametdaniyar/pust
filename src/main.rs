@@ -1,7 +1,7 @@
 use crate::{alphabet::Alphabet, config::ConfigArgs};
 use clap::Parser;
 use constants::{
-    DEFAULT_ENABLE_DIGIT, DEFAULT_ENABLE_LOWER, DEFAULT_ENABLE_SPECIAL, DEFAULT_ENABLE_UPPER,
+    DEFAULT_DISABLE_DIGIT, DEFAULT_DISABLE_LOWER, DEFAULT_DISABLE_SPECIAL, DEFAULT_DISABLE_UPPER,
     DEFAULT_PASS_LEN,
 };
 
@@ -17,17 +17,17 @@ pub struct CliArgs {
     #[clap(default_value=DEFAULT_PASS_LEN, long)]
     length: u32,
 
-    #[clap(default_value=DEFAULT_ENABLE_DIGIT, short_alias='d', long)]
-    enable_digit: bool,
+    #[clap(default_value=DEFAULT_DISABLE_DIGIT, short_alias='d', long)]
+    disable_digit: bool,
 
-    #[clap(default_value=DEFAULT_ENABLE_LOWER, short_alias='l', long)]
-    enable_lower: bool,
+    #[clap(default_value=DEFAULT_DISABLE_LOWER, short_alias='l', long)]
+    disable_lower: bool,
 
-    #[clap(default_value=DEFAULT_ENABLE_SPECIAL, short_alias='s', long)]
-    enable_special: bool,
+    #[clap(default_value=DEFAULT_DISABLE_SPECIAL, short_alias='s', long)]
+    disable_special: bool,
 
-    #[clap(default_value=DEFAULT_ENABLE_UPPER, short_alias='u', long)]
-    enable_upper: bool,
+    #[clap(default_value=DEFAULT_DISABLE_UPPER, short_alias='u', long)]
+    disable_upper: bool,
 }
 
 fn main() {
