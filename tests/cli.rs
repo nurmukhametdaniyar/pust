@@ -2,6 +2,8 @@ use assert_cmd::prelude::*;
 use std::process::Command;
 use std::str;
 
+// TODO: Fix tests by adding entering master password
+
 #[test]
 fn run_usually() -> Result<(), Box<dyn std::error::Error>> {
     let mut cmd = Command::cargo_bin("pust")?;

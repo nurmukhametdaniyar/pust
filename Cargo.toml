@@ -1,6 +1,6 @@
 [package]
 name = "pust"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Daniyar Nurmukhamet <nurmukhametdaniyar@gmail.com>"]
 license = "MIT"
 description = "A simple static password generator"
@@ -15,12 +15,14 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.0.10", features = ["derive"]}
+md5 = "0.7.0"
 mockall = "0.11.2"
 mockall_double = "0.3.0"
 rand = "0.8.5"
 rand_chacha = "0.3.1"
 rand_pcg = "0.3.1"
 rand_seeder = "0.2.3"
+rpassword = "7.0.0"
 sudo = "0.6.0"
 
 [dev-dependencies]

@@ -198,6 +198,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "md5"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "490cc448043f947bae3cbee9c203358d62dbee0db12107a74be5c30ccfd09771"
+
+[[package]]
 name = "memchr"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -340,10 +346,11 @@ dependencies = [
 
 [[package]]
 name = "pust"
-version = "0.1.1"
+version = "0.2.0"
 dependencies = [
  "assert_cmd",
  "clap",
+ "md5",
  "mockall",
  "mockall_double",
  "predicates",
@@ -351,6 +358,7 @@ dependencies = [
  "rand_chacha",
  "rand_pcg",
  "rand_seeder",
+ "rpassword",
  "sudo",
 ]
 
@@ -433,6 +441,16 @@ name = "regex-syntax"
 version = "0.6.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a3f87b73ce11b1619a3c6332f45341e0047173771e8b8b73f87bfeefb7b56244"
+
+[[package]]
+name = "rpassword"
+version = "7.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "26b763cb66df1c928432cc35053f8bd4cec3335d8559fc16010017d16b3c1680"
+dependencies = [
+ "libc",
+ "winapi",
+]
 
 [[package]]
 name = "strsim"
