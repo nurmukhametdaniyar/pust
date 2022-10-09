@@ -14,7 +14,9 @@ Obviously, static passwords of any length can be generated for other uses as wel
 
 ## Installation
 
-TODO: Add installation instructions
+`
+cargo install pust
+`
 
 ## Usage
 
