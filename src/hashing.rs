@@ -48,6 +48,6 @@ impl Hashing {
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     // TODO: Add tests
 }

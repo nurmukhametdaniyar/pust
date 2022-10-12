@@ -1,4 +1,7 @@
-use crate::{alphabet::Alphabet, config::ConfigArgs, hashing::Hashing, password::Password};
+use crate::{
+    alphabet::Alphabet, clipboard::Clipboard, config::ConfigArgs, hashing::Hashing,
+    password::Password,
+};
 use clap::Parser;
 use constants::{
     DEFAULT_DISABLE_DIGIT, DEFAULT_DISABLE_LOWER, DEFAULT_DISABLE_SPECIAL, DEFAULT_DISABLE_UPPER,
@@ -6,6 +9,7 @@ use constants::{
 };
 
 mod alphabet;
+mod clipboard;
 mod config;
 pub mod constants;
 mod hashing;
@@ -41,7 +45,9 @@ fn main() {
             let salt = format!("salt+{}+{}", account_name, Hashing::get_salt());
             let config = ConfigArgs::new(&args);
             let mut alphabet = Alphabet::new(config, salt);
-            println!("{}", alphabet.gen_password(args.length));
+            let password = alphabet.gen_password(args.length);
+            Clipboard::copy_text(password);
+            println!("Password copied to clipboard!");
         }
         Err(err) => println!("Error: {}", err),
     }
