@@ -1,6 +1,6 @@
 [package]
 name = "pust"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Daniyar Nurmukhamet <nurmukhametdaniyar@gmail.com>"]
 license = "MIT"
 description = "A simple static password generator"
