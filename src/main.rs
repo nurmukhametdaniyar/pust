@@ -39,10 +39,10 @@ pub struct CliArgs {
 fn main() {
     let read_password_result = Password::read_password();
     match read_password_result {
-        Ok(_) => {
+        Ok(password) => {
             let args = CliArgs::parse();
             let account_name = args.account_name.to_lowercase();
-            let salt = format!("salt+{}+{}", account_name, Hashing::get_salt());
+            let salt = format!("salt+{}+{}+{}", account_name, Hashing::get_salt(), password);
             let config = ConfigArgs::new(&args);
             let mut alphabet = Alphabet::new(config, salt);
             let password = alphabet.gen_password(args.length);

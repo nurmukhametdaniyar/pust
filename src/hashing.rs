@@ -9,7 +9,7 @@ use std::{
 pub struct Hashing;
 
 impl Hashing {
-    pub fn hash(s: String) -> Result<String, String> {
+    pub fn hash(s: &String) -> Result<String, String> {
         let from_env = format!("{}/.pust/salt", var("HOME").unwrap());
         let path = Path::new(&from_env);
         if !path.exists() {

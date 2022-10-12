@@ -18,7 +18,7 @@ impl Password {
         path.exists()
     }
 
-    fn check_password(input_password: String) -> Result<bool, String> {
+    fn check_password(input_password: &String) -> Result<bool, String> {
         let from_env = format!("{}/.pust/auth", var("HOME").unwrap());
         let password_path = Path::new(&from_env);
         let hashed_input_result = Hashing::hash(input_password);
@@ -36,7 +36,7 @@ impl Password {
         }
     }
 
-    pub fn read_password() -> Result<(), String> {
+    pub fn read_password() -> Result<String, String> {
         let password_exists = Self::check_password_exists();
         if password_exists {
             let mut incorrect_count: u32 = 0;
@@ -44,11 +44,11 @@ impl Password {
                 print!("Enter master password: ");
                 std::io::stdout().flush().unwrap();
                 let password = read_password().unwrap();
-                let check_password_result = Self::check_password(password);
+                let check_password_result = Self::check_password(&password);
                 match check_password_result {
                     Ok(result) => {
                         if result {
-                            return Ok(());
+                            return Ok(password);
                         } else {
                             incorrect_count += 1;
                             if incorrect_count >= 3 {
@@ -76,12 +76,12 @@ impl Password {
                 let create_password_file_result = Self::create_password_file();
                 match create_password_file_result {
                     Ok(mut file) => {
-                        let hashed_password_result = Hashing::hash(password);
+                        let hashed_password_result = Hashing::hash(&password);
                         match hashed_password_result {
                             Ok(hashed_password) => {
                                 file.write_all(hashed_password.as_bytes())
                                     .expect("Error saving password");
-                                return Ok(());
+                                return Ok(password);
                             }
                             Err(err) => return Err(err),
                         }
